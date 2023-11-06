@@ -30,7 +30,7 @@
 
 ## Collaborators
 
-| Nadjib M | Wala Eddine B|
+| [Nadjib M](https://github.com/Nadjib-coder) | [Wala Eddine B](https://github.com/WalaEddine01)|
 | :-------- | :------------------------- |
 | ![nadjib](https://media.licdn.com/dms/image/D4D03AQHbpHMnAT3M4Q/profile-displayphoto-shrink_100_100/0/1683302678870?e=1704931200&v=beta&t=W4jhaI52ZHou5RNqp7FT7GPOxlu5tx2-l-ze8Xjn3mQ) | ![wala](https://media.licdn.com/dms/image/D4E03AQFfHDWs3YS-lQ/profile-displayphoto-shrink_100_100/0/1688823968266?e=1704931200&v=beta&t=9tMejXQG7F094hnPNiiT-2s4eA8IOFjgsj0W47yi2AE) |
 
