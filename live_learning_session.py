@@ -26,4 +26,12 @@ class MyCmd(cmd.Cmd):
         except ValueError:
             print("Invalid input. Usage multiply <num1> <num2>")
 
-    def do_exit)
+        def do_exit(self, *args):
+        """Exits the console"""
+        print("Exiting the console.")
+        return True  # This is the signal to exit the command line interface
+
+if __name__ == '__main__':
+    my_cmd = MyCmd()
+    my_cmd.cmdloop()
+
