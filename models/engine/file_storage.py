@@ -47,9 +47,8 @@ class FileStorage:
             with open(FileStorage.__file_path, encoding="utf-8") as f:
                 desr_file = json.load(f)
                 for v in desr_file.values():
-                    print(v)
                     cls_n = v["__class__"]
                     if isinstance(cls_n, str) and type(eval(cls_n)) == type:
-                            self.new(eval(cls_n)(**desr_file))
+                        self.new(eval(cls_n)(**desr_file))
         except FileNotFoundError:
             pass
