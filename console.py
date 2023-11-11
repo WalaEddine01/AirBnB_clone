@@ -86,7 +86,21 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def do_all(self, line):
-        pass
+        """
+        Prints all string representation of all instances based on the cls name
+        """
+        if line == "" or line is None:
+            print("** class name missing **")
+        else:
+            if line != "BaseModel":
+                print("** class doesn't exist **")
+            else:
+                con = models.storage.all()
+                li = []
+                for k, v in con.items():
+                    if type(v).__name__ == "BaseModel":
+                        li.append(str(v))
+                print(li)
 
     def do_update(self, line):
         pass
