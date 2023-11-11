@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """
+This modual contains the HBNBCommand class that represants the HBNB console
 """
 import cmd
-
+from models.base_model import BaseModel
+import models
 
 class HBNBCommand(cmd.Cmd):
     """
+    This class for the hbnb console
     """
 
     prompt = "(hbnb) "
@@ -23,7 +26,17 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, line):
-        pass
+        """
+        This method used to creat an instance from BaseModel class
+        """
+        if line == "" or line is None:
+            print("** class name missing **")
+        elif line == "BaseModel":
+            new = BaseModel()
+            new.save()
+            print(new.id)
+        else:
+            print("** class doesn't exist **")
 
     def do_show(self, line):
         pass
@@ -37,5 +50,11 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         pass
 
-if __name__ == '__main__':
+    def emptyline(self):
+        """
+        Method called when an empty line is entered in response to the prompt
+        """
+        pass
+
+if __name__ == "__main__":
     HBNBCommand().cmdloop()
