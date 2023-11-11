@@ -5,6 +5,7 @@ This modual contains the HBNBCommand class that represants the HBNB console
 import cmd
 from models.base_model import BaseModel
 import models
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -103,7 +104,33 @@ class HBNBCommand(cmd.Cmd):
                 print(li)
 
     def do_update(self, line):
-        pass
+        """
+        This method used to Updates an instance based on the class name and id
+        by adding or updating attribute
+        """
+        if line == "" or line is None:
+            print("** class name missing **")
+        else:
+            args = line.split(' ')
+            if args[0] != "BaseModel":
+                print("** class doesn't exist **")
+                return
+            pattern = r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-\
+                    [89ab][0-9a-f]{3}-[0-9a-f]{12}$'
+            if len(args) >= 2 and re.match(pattern, args[1]) is None:
+                print("** instance id missing **")
+                return
+            name = f"{args[0]}.{args[1]}"
+            if name not in storage.all():
+                print("** no instance found **")
+                return
+            if len(args) < 3:
+                print("** attribute name missing **")
+                return
+            if len(args) < 4:
+                print("** value missing **")
+                return
+
 
     def emptyline(self):
         """
