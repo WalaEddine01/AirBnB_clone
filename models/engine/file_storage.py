@@ -49,6 +49,7 @@ class FileStorage:
                 for v in desr_file.values():
                     cls_n = v["__class__"]
                     if isinstance(cls_n, str) and type(eval(cls_n)) == type:
-                        self.new(eval(cls_n)(**desr_file))
+                        print(v["id"])
+                        self.new(eval(cls_n)(**v))
         except FileNotFoundError:
             pass

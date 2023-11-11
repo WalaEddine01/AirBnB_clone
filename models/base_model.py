@@ -17,17 +17,17 @@ class BaseModel:
         if kwargs:
             if "__class__" in kwargs:
                 del kwargs["__class__"]
-                for key, val in kwargs.items():
-                    if key == "created_at" or key == "updated_at":
-                        obj_time = datetime.strptime(val, '%Y-%m-%dT%H:%M:%S.%f')
-                        setattr(self, key, obj_time)
-                    else:
-                        setattr(self, key, val)
-            else:
-                self.id = str(uuid4())
-                self.created_at = datetime.now()
-                self.updated_at = datetime.now()
-                models.storage.new(self)
+            for key, val in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    obj_time = datetime.strptime(val, '%Y-%m-%dT%H:%M:%S.%f')
+                    setattr(self, key, obj_time)
+                else:
+                    setattr(self, key, val)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """
