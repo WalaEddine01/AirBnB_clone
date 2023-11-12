@@ -129,7 +129,16 @@ class HBNBCommand(cmd.Cmd):
             if len(args) < 4:
                 print("** value missing **")
                 return
-            print(name)
+            con = models.storage.all()
+            try:
+                args[3] = int(args[3])
+            except ValueError:
+                try:
+                    args[3] = float(args[3])
+                except ValueError:
+                    pass
+            setattr(con[name], args[2], args[3])
+            models.storage.all()[name].save()
 
     def emptyline(self):
         """
