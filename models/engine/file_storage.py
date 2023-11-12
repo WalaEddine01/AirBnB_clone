@@ -22,11 +22,13 @@ class FileStorage:
         """
         return FileStorage.__objects
 
+
     def new(self, obj):
         """
         sets in __objects the obj with key <obj class name>.id
         """
         FileStorage.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
+
 
     def save(self):
         """
@@ -37,6 +39,7 @@ class FileStorage:
             jsn_file[k] = v.to_dict()
         with open(FileStorage.__file_path, mode="w", encoding="utf-8") as f:
             json.dump(jsn_file, f)
+
 
     def reload(self):
         """
@@ -53,3 +56,4 @@ class FileStorage:
                         self.new(eval(cls_n)(**v))
         except FileNotFoundError:
             pass
+
