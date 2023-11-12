@@ -7,7 +7,6 @@ from models.base_model import BaseModel
 import models
 import re
 
-
 class HBNBCommand(cmd.Cmd):
     """
     This class for the hbnb console
@@ -19,6 +18,7 @@ class HBNBCommand(cmd.Cmd):
         """
         EOF command to exit the program
         """
+        print()
         return True
 
     def do_quit(self, line):
@@ -136,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
                 try:
                     args[3] = float(args[3])
                 except ValueError:
-                    pass
+                    args[3]= args[3].replace('"', '')
             setattr(con[name], args[2], args[3])
             models.storage.all()[name].save()
 
