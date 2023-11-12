@@ -115,13 +115,12 @@ class HBNBCommand(cmd.Cmd):
             if args[0] != "BaseModel":
                 print("** class doesn't exist **")
                 return
-            pattern = r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-\
-                    [89ab][0-9a-f]{3}-[0-9a-f]{12}$'
-            if len(args) >= 2 and re.match(pattern, args[1]) is None:
+            patr = r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-.{4}-[0-9a-f]{12}$'
+            if len(args) < 2 or re.match(patr, args[1]) is None:
                 print("** instance id missing **")
                 return
             name = f"{args[0]}.{args[1]}"
-            if name not in storage.all():
+            if name not in models.storage.all():
                 print("** no instance found **")
                 return
             if len(args) < 3:
@@ -130,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             if len(args) < 4:
                 print("** value missing **")
                 return
-
+            print(name)
 
     def emptyline(self):
         """
