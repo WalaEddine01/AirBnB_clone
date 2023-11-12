@@ -4,8 +4,8 @@ This module contains FileStorage class
 """
 import json
 from datetime import datetime
-from models.base_model import BaseModel
 from uuid import uuid4
+from models.base_model import BaseModel
 
 
 class FileStorage:
