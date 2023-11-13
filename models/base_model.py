@@ -2,9 +2,11 @@
 """
 This moduale is contains a BaseModel Class
 """
+
 from datetime import datetime
 from uuid import uuid4
-import models 
+import models
+
 
 class BaseModel:
     """
@@ -30,13 +32,11 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)
 
-
     def __str__(self):
         """
         String representation of BaseModel class
         """
         return f"[{BaseModel.__name__}] ({self.id}) {self.__dict__}"
-
 
     def save(self):
         """
@@ -45,7 +45,6 @@ class BaseModel:
 
         self.updated_at = datetime.now()
         models.storage.save()
-
 
     def to_dict(self):
         """
@@ -57,4 +56,3 @@ class BaseModel:
         dict_2["created_at"] = self.__dict__["created_at"].isoformat()
         dict_2["updated_at"] = self.__dict__["updated_at"].isoformat()
         return dict_2
-

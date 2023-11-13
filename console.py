@@ -7,12 +7,12 @@ from models.base_model import BaseModel
 import models
 import re
 
+
 class HBNBCommand(cmd.Cmd):
     """
     This class for the hbnb console
     """
     prompt = "(hbnb) "
-
 
     def do_EOF(self, line):
         """
@@ -21,13 +21,11 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-
     def do_quit(self, line):
         """
         Quit command to exit the program
         """
         return True
-
 
     def do_create(self, line):
         """
@@ -41,7 +39,6 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
         else:
             print("** class doesn't exist **")
-
 
     def do_show(self, line):
         """
@@ -64,7 +61,6 @@ class HBNBCommand(cmd.Cmd):
                         a = 1
                 if a == 0:
                     print("** no instance found **")
-
 
     def do_destroy(self, line):
         """
@@ -90,7 +86,6 @@ class HBNBCommand(cmd.Cmd):
                 if a == 0:
                     print("** no instance found **")
 
-
     def do_all(self, line):
         """
         Prints all string representation of all instances based on the cls name
@@ -107,7 +102,6 @@ class HBNBCommand(cmd.Cmd):
                     if type(v).__name__ == "BaseModel":
                         li.append(str(v))
                 print(li)
-
 
     def do_update(self, line):
         """
@@ -142,10 +136,9 @@ class HBNBCommand(cmd.Cmd):
                 try:
                     args[3] = float(args[3])
                 except ValueError:
-                    args[3]= args[3].replace('"', '')
+                    args[3] = args[3].replace('"', '')
             setattr(con[name], args[2], args[3])
             models.storage.all()[name].save()
-
 
     def emptyline(self):
         """
@@ -155,5 +148,5 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    HBNBCommand().cmdloop()
-
+    my_cmd = HBNBCommand()
+    my_cmd.cmdloop()

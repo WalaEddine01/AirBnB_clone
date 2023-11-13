@@ -2,6 +2,7 @@
 """
 this module is for Unittesting BaseModel Class
 """
+
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
@@ -17,4 +18,3 @@ class TestBaseModel(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
