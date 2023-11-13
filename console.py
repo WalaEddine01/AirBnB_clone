@@ -88,7 +88,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """
-        Prints all string representation of all instances based on the cls name
+        Prints all string representation of all
+        instances based on the cls name
         """
         if line == "" or line is None:
             print("** class name missing **")
@@ -105,7 +106,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """
-        This method used to Updates an instance based on the class name and id
+        This method used to Updates an instance
+        based on the class name and id
         by adding or updating attribute
         """
         if line == "" or line is None:
