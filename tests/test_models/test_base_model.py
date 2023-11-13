@@ -14,7 +14,7 @@ class TestBaseModel(unittest.TestCase):
     """
     This class to test BaseModel Class
     """
-    def test_uuid(self):
+    def test_id(self):
         """
         Test that the id is a string
         """
