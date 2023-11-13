@@ -4,7 +4,7 @@ This modual contains the HBNBCommand class that represants the HBNB console
 """
 import cmd
 from models.base_model import BaseModel
-import models
+from models import storage
 import re
 
 
@@ -150,5 +150,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    my_cmd = HBNBCommand()
-    my_cmd.cmdloop()
+    HBNBCommand().cmdloop()
