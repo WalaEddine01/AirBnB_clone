@@ -21,6 +21,14 @@ class TestBaseModel(unittest.TestCase):
         model = BaseModel()
         self.assertIsInstance(model.id, str)
 
+    def test_str(self):
+        """
+        To test the __str__ method
+        """
+        model = BaseModel()
+        string = "[BaseModel] ({}) {}".format(model.id, model.__dict__)
+        self.assertEqual(string, str(model))
+
     def test_save(self):
         """
         Testing save method
