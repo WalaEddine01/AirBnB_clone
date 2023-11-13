@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         elif line == "BaseModel":
             new = BaseModel()
             new.save()
-            print(new.id)
+            print(str(new.id))
         else:
             print("** class doesn't exist **")
 

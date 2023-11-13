@@ -22,6 +22,7 @@ class TestBaseModel(unittest.TestCase):
         model = BaseModel()
         self.assertIsInstance(model.id, str)
     """
+
     def test_str(self):
         """
         To test the __str__ method
