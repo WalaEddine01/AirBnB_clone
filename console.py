@@ -4,7 +4,7 @@ This modual contains the HBNBCommand class that represants the HBNB console
 """
 import cmd
 from models.base_model import BaseModel
-from models import storage
+import models
 import re
 
 
