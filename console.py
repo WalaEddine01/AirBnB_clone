@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         elif line == "BaseModel":
             new = BaseModel()
             new.save()
-            print(str(new.id))
+            print(new.id)
         else:
             print("** class doesn't exist **")
 
@@ -91,9 +91,7 @@ class HBNBCommand(cmd.Cmd):
         Prints all string representation of all
         instances based on the cls name
         """
-        if line == "" or line is None:
-            print("** class name missing **")
-        else:
+        if line != "" or line is None:
             if line != "BaseModel":
                 print("** class doesn't exist **")
             else:
@@ -103,6 +101,12 @@ class HBNBCommand(cmd.Cmd):
                     if type(v).__name__ == "BaseModel":
                         li.append(str(v))
                 print(li)
+        else:
+            con = models.storage.all()
+            li = []
+            for k, v in con.items():
+                li.append(str(v))
+            print(li)
 
     def do_update(self, line):
         """

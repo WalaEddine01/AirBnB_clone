@@ -79,6 +79,8 @@ if result is None or result == "":
 model_id = result
 
 result = exec_command(my_console, "all")
+print(result)
+print(model_id)
 if result is None or result == "":
     print("FAIL: no output")
     
