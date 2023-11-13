@@ -27,6 +27,20 @@ class TestBaseModel(unittest.TestCase):
         model.save()
         self.assertNotEqual(model.updated_at, model.created_at)
 
+    def test_to_dict(self):
+        """
+        This method to test to_dict method
+        """
+        model = BaseModel()
+        model.city = "batna"
+        model.number = int(5)
+        di = model.to_dict()
+        self.assertIsInstance(di["created_at"], str)
+        self.assertIsInstance(di["updated_at"], str)
+        self.assertIsInstance(di["number"], int)
+        self.assertEqual(di["number"], 5)
+        self.assertEqual(di["city"], "batna")
+
 
 if __name__ == "__main__":
     unittest.main()
