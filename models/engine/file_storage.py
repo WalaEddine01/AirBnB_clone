@@ -7,6 +7,7 @@ import json
 from datetime import datetime
 from uuid import uuid4
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:

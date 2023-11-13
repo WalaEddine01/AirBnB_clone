@@ -2,23 +2,24 @@
 """
 This modual contains the HBNBCommand class that represants the HBNB console
 """
+
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models import storage
 import models
 import re
 
 
 class HBNBCommand(cmd.Cmd):
-    """
-    This class for the hbnb console
-    """
+    """This class for the hbnb console"""
     prompt = "(hbnb) "
+    class_list = ["BaseModel", "User"]
 
     def do_EOF(self, line):
         """
         EOF command to exit the program
         """
-        print()
         return True
 
     def do_quit(self, line):
@@ -27,18 +28,22 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
+    def emptyline(self):
+        """Perform nothing when there's no command passed to the console"""
+        pass
+
     def do_create(self, line):
         """
         This method used to creat an instance from BaseModel class
         """
         if line == "" or line is None:
             print("** class name missing **")
-        elif line == "BaseModel":
-            new = BaseModel()
-            new.save()
-            print(new.id)
-        else:
+        elif line not in HBNBCommand.class_list:
             print("** class doesn't exist **")
+        else:
+            new = eval(line)()
+            print(new.id)
+            new.save()
 
     def do_show(self, line):
         """
@@ -48,16 +53,16 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(" ")
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif len(args) < 2:
                 print("** instance id missing **")
             else:
                 name = f'{args[0]}.{args[1]}'
                 a = 0
-                for k in models.storage.all().keys():
-                    if k == name:
-                        print(models.storage.all()[k])
+                for key, obj in storage.all().keys():
+                    if key == name:
+                        print(obj)
                         a = 1
                 if a == 0:
                     print("** no instance found **")
@@ -141,12 +146,6 @@ class HBNBCommand(cmd.Cmd):
                     args[3] = args[3].replace('"', '')
             setattr(con[name], args[2], args[3])
             models.storage.all()[name].save()
-
-    def emptyline(self):
-        """
-        Method called when an empty line is entered in response to the prompt
-        """
-        pass
 
 
 if __name__ == "__main__":
