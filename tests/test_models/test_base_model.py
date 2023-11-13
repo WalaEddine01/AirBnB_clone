@@ -16,9 +16,7 @@ class TestBaseModel(unittest.TestCase):
     """
     """
     def test_id(self):
-        """
-        Test that the id is a string
-        """
+        'Test that the id is a string'
         model = BaseModel()
         self.assertIsInstance(model.id, str)
     """
