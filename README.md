@@ -61,35 +61,35 @@ $ ./console.py
 (hbnb) all
 []
 (hbnb) create Place
-492f60f3-ff1e-43c7-bb11-f8407b04dd59
+482f60f3-ff1e-43c7-bb11-f8407b04dd69
 (hbnb) create BaseModel
-99f01e9a-99c0-42af-8c10-c35cadee1d8f
+88f01e9a-98c0-43af-8c10-c35cadee1d5e
 (hbnb) BaseModel.count()
 1
 (hbnb) all
-["[Place] (492f60f3-ff1e-43c7-bb11-f8407b04dd59) {'id': '492f60f3-ff1e-43c7-bb11-f8407b04dd59', 'created_at': datetime.datetime(2020, 7, 1, 11, 36, 24, 576486), 'updated_at': datetime.datetime(2020, 7, 1, 11, 36, 24, 576530)}", "[BaseModel] (99f01e9a-99c0-42af-8c10-c35cadee1d8f) {'id': '99f01e9a-99c0-42af-8c10-c35cadee1d8f', 'created_at': datetime.datetime(2020, 7, 1, 11, 36, 30, 773211), 'updated_at': datetime.datetime(2020, 7, 1, 11, 36, 30, 773236)}"]
+["[Place] (482f60f3-ff1e-43c7-bb11-f8407b04dd69) {'id': '482f60f3-ff1e-43c7-bb11-f8407b04dd69', 'created_at': datetime.datetime(2023, 11, 14, 19, 59, 24, 576486), 'updated_at': datetime.datetime(2023, 11, 14, 19, 59, 24, 576530)}", "[BaseModel] (88f01e9a-98c0-43af-8c10-c35cadee1d5e) {'id': '88f01e9a-98c0-43af-8c10-c35cadee1d5e', 'created_at': datetime.datetime(2023, 11, 14, 20, 00, 30, 773211), 'updated_at': datetime.datetime(2023, 11, 14, 20, 00, 30, 773236)}"]
 (hbnb)
 ```
 Example 2: Using basic update with an Id and show command
 ```bash
 (hbnb) update BaseModel 99f01e9a-99c0-42af-8c10-c35cadee1d8f first_name "Betty"
 (hbnb) show BaseModel 99f01e9a-99c0-42af-8c10-c35cadee1d8f
-[BaseModel] (99f01e9a-99c0-42af-8c10-c35cadee1d8f) {'id': '99f01e9a-99c0-42af-8c10-c35cadee1d8f', 'created_at': datetime.datetime(2020, 7, 1, 11, 36, 30, 773211), 'updated_at': datetime.datetime(2020, 7, 1, 11, 36, 30, 773236), 'first_name': 'Betty'}
+[BaseModel] (99f01e9a-99c0-42af-8c10-c35cadee1d8f) {'id': '99f01e9a-99c0-42af-8c10-c35cadee1d8f', 'created_at': datetime.datetime(2023, 11, 14, 20, 00, 30, 773211), 'updated_at': datetime.datetime(2023, 11, 14, 20, 00, 30, 773236), 'first_name': 'Betty'}
 (hbnb) Place.update("492f60f3-ff1e-43c7-bb11-f8407b04dd59", "first_name", "John")
 (hbnb) show Place 492f60f3-ff1e-43c7-bb11-f8407b04dd59
-[Place] (492f60f3-ff1e-43c7-bb11-f8407b04dd59) {'id': '492f60f3-ff1e-43c7-bb11-f8407b04dd59', 'created_at': datetime.datetime(2020, 7, 1, 11, 36, 24, 576486), 'updated_at': datetime.datetime(2020, 7, 1, 11, 36, 24, 576530), 'first_name': 'John'}
+[Place] (492f60f3-ff1e-43c7-bb11-f8407b04dd59) {'id': '492f60f3-ff1e-43c7-bb11-f8407b04dd59', 'created_at': datetime.datetime(2023, 11, 14, 20, 00, 24, 576486), 'updated_at': datetime.datetime(2023, 11, 14, 20, 00, 24, 576530), 'first_name': 'John'}
 ```
 Example 3: Using update with a dictionary
 ```bash
 (hbnb) BaseModel.update("99f01e9a-99c0-42af-8c10-c35cadee1d8f", {'first_name': "Petter", "age": 45})
 (hbnb) show BaseModel 99f01e9a-99c0-42af-8c10-c35cadee1d8f
-[BaseModel] (99f01e9a-99c0-42af-8c10-c35cadee1d8f) {'id': '99f01e9a-99c0-42af-8c10-c35cadee1d8f', 'created_at': datetime.datetime(2020, 7, 1, 11, 36, 30, 773211), 'updated_at': datetime.datetime(2020, 7, 1, 11, 36, 30, 773236), 'first_name': 'Petter', 'age': '45'}
+[BaseModel] (99f01e9a-99c0-42af-8c10-c35cadee1d8f) {'id': '99f01e9a-99c0-42af-8c10-c35cadee1d8f', 'created_at': datetime.datetime(2023, 11, 14, 20, 00, 30, 773211), 'updated_at': datetime.datetime(2023, 11, 14, 20, 00, 30, 773236), 'first_name': 'Petter', 'age': '45'}
 ```
 Example 4: Using destroy and count command
 ```bash
 (hbnb) BaseModel.destroy("99f01e9a-99c0-42af-8c10-c35cadee1d8f")
 (hbnb) all
-["[Place] (492f60f3-ff1e-43c7-bb11-f8407b04dd59) {'id': '492f60f3-ff1e-43c7-bb11-f8407b04dd59', 'created_at': datetime.datetime(2020, 7, 1, 11, 36, 24, 576486), 'updated_at': datetime.datetime(2020, 7, 1, 11, 36, 24, 576530), 'first_name': 'John'}"]
+["[Place] (492f60f3-ff1e-43c7-bb11-f8407b04dd59) {'id': '492f60f3-ff1e-43c7-bb11-f8407b04dd59', 'created_at': datetime.datetime(2023, 11, 14, 20, 00, 24, 576486), 'updated_at': datetime.datetime(2023, 11, 14, 20, 00, 24, 576530), 'first_name': 'John'}"]
 (hbnb) BaseModel.count()
 0
 (hbnb) quit
@@ -100,7 +100,7 @@ Example 5: Non - Interactive Mode
 $ echo "create User" | ./console.py
 (hbnb) 55b76419-6009-4b36-b88a-7c2930283f4a
 $ echo "show User 55b76419-6009-4b36-b88a-7c2930283f4a" | ./console.py
-(hbnb) [User] (55b76419-6009-4b36-b88a-7c2930283f4a) {'id': '55b76419-6009-4b36-b88a-7c2930283f4a', 'created_at': datetime.datetime(2020, 7, 1, 12, 37, 15, 575191), 'updated_at': datetime.datetime(2020, 7, 1, 12, 37, 15, 575237)}
+(hbnb) [User] (55b76419-6009-4b36-b88a-7c2930283f4a) {'id': '55b76419-6009-4b36-b88a-7c2930283f4a', 'created_at': datetime.datetime(2023, 11, 14, 20, 37, 15, 575191), 'updated_at': datetime.datetime(2023, 11, 14, 20, 37, 15, 575237)}
 ```
 
 ## Collaborators
