@@ -13,6 +13,7 @@ class HBNBCommand(cmd.Cmd):
     This class for the hbnb console
     """
     prompt = "(hbnb) "
+    class_list = ["BaseModel", "User"]
 
     def do_EOF(self, line):
         """
@@ -33,12 +34,12 @@ class HBNBCommand(cmd.Cmd):
         """
         if line == "" or line is None:
             print("** class name missing **")
-        elif line == "BaseModel":
-            new = BaseModel()
-            new.save()
-            print(new.id)
-        else:
+        elif line not in HBNBCommand.class_list:
             print("** class doesn't exist **")
+        else:
+            new = eval(line)()
+            print(new.id)
+            new.save()
 
     def do_show(self, line):
         """
@@ -48,16 +49,16 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(" ")
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif len(args) < 2:
                 print("** instance id missing **")
             else:
                 name = f'{args[0]}.{args[1]}'
                 a = 0
-                for k in models.storage.all().keys():
-                    if k == name:
-                        print(models.storage.all()[k])
+                for key in models.storage.all().keys():
+                    if key == name:
+                        print(models.storage.all()[key])
                         a = 1
                 if a == 0:
                     print("** no instance found **")
@@ -70,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(' ')
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif len(args) < 2:
                 print("** instance id missing **")
@@ -92,20 +93,20 @@ class HBNBCommand(cmd.Cmd):
         instances based on the cls name
         """
         if line != "" or line is None:
-            if line != "BaseModel":
+            if line not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             else:
                 con = models.storage.all()
                 li = []
-                for k, v in con.items():
-                    if type(v).__name__ == "BaseModel":
-                        li.append(str(v))
+                for key, value in con.items():
+                    if type(value).__name__ in HBNBCommand.class_list:
+                        li.append(str(value))
                 print(li)
         else:
             con = models.storage.all()
             li = []
-            for k, v in con.items():
-                li.append(str(v))
+            for key, value in con.items():
+                li.append(str(value))
             print(li)
 
     def do_update(self, line):
@@ -118,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             args = line.split(' ')
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
                 return
             patr = r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-.{4}-[0-9a-f]{12}$'
@@ -154,4 +155,5 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    HBNBCommand().cmdloop()
+    my_cmd = HBNBCommand()
+    my_cmd.cmdloop()
