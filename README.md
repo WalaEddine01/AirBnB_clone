@@ -10,7 +10,7 @@
 - Installation and execution 🔧
 Clone the repository
 ```bash
-$ git clone https://github.com/JoseR98/AirBnB_clone.git
+$ git clone https://github.com/WalaEddine01/AirBnB_clone.git
 ```
 Move in to the directory
 ```bash
