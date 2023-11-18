@@ -38,8 +38,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             new = eval(line)()
-            print(new.id)
             new.save()
+            print(new.id)
 
     def do_show(self, line):
         """
