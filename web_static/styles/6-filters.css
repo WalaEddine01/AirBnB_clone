@@ -50,11 +50,11 @@ section.filters button:hover{
 
 .popover {
 	position: absolute;
-    width: 13.9%;
+    width: 17.5%;
 	background-color: #FAFAFA;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
-	padding: 30px;
+	padding: 5px;
     margin: 0;
     display: none;
     
