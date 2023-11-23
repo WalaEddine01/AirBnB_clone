@@ -4,6 +4,7 @@
     width: 100%;
     border: 1px solid #CCCCCC;
     border-radius: 4px;
+    position: relative;
 }
 
 button {
@@ -18,7 +19,6 @@ button {
     float: right;
     margin-right: 30px;
     margin-top: 10px;
-    
 }
 button:hover{
     opacity: 90%;
@@ -28,34 +28,42 @@ button:hover{
     height: 100%;
     width: 25%;
     display: inline-block;
-    margin-left: 40px;
+    padding-left: 40px;
 }
 .locations{
     border-right: 1px #DDDDDD solid;
 }
 
-h3 {
+.locations > h3 , .amenities > h3{
     font-weight: 600;
 }
-h4 {
+.locations > h4, .amenities > h4 {
     font-weight: 400;
     font-size: 14px;
 }
-h3, h4 {
+.locations > h3 , .amenities > h3,
+.locations > h4, .amenities > h4 {
     margin: 0;
     margin-top: 20px;
 }
-h4 {
+.locations > h4, .amenities > h4 {
     margin: 0;
-    margin-bottom: 100px;
 }
-ul {
+.popover {
+    margin-top: 20px;
+    width: 25%;
+    color: #FAFAFA;
+    left: 0;
+    border: 1px solid #DDDDDD;
+    background-color: #e6e6e6;
+    border-radius: 4px;
+    position: absolute;
     display: none;
+    
 }
-
-div.amenities:hover ul{
+li {
+    padding:10px;
+}
+.locations:hover .popover , .amenities:hover .popover {
     display: block;
-}
-div.locations:hover ul{
-    display:contents;
 }
