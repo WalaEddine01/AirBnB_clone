@@ -1,13 +1,10 @@
 footer {
-    color: rgb(0, 0, 0);
-    height: 60px;
-    width: 100%;
-    border-top: 1px solid #CCCCCC;
-    background-color: #ffffff;
-    position: fixed;
-    bottom: 0;
-    justify-content: center;
+    background-color: white;
+	height: 60px;
+	width: 100%;
+	border-top: 1px solid #CCCCCC;
+	margin-top: auto;
     text-align: center;
-    align-items: center;
+    justify-content: center;
     line-height: 60px;
 }
