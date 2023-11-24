@@ -1,10 +1,13 @@
 footer {
-    color: black;
+    color: rgb(0, 0, 0);
     height: 60px;
     width: 100%;
     border-top: 1px solid #CCCCCC;
     background-color: #ffffff;
+    position: fixed;
     bottom: 0;
+    justify-content: center;
     text-align: center;
+    align-items: center;
     line-height: 60px;
 }
